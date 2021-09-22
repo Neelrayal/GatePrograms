@@ -62,6 +62,77 @@ void atFront(int data){
     Display();
 }
 
+void DeleteFromFront(){
+    node* temp = head; 
+    head = head->next;
+    cout << "After deleting from front:\n";
+    Display(); 
+    free(temp);
+}
+
+void DeleteFromEnd(){
+    node* temp = head; 
+    while(temp->next->next)
+        temp = temp->next; 
+    free(temp->next);         
+    temp->next = NULL; 
+    cout << "After deleting from end:\n";
+    Display(); 
+}
+
+
+void DeleteElement(int data1){
+    node* temp = head; 
+    node* pre = head; 
+    bool flag = false; 
+    while(temp){
+        if(temp->data == data1){
+            pre->next = temp->next; 
+            flag = true;             
+            free(temp); 
+            cout << "After deleting element:\n";
+            Display(); 
+            break; 
+        }
+        else{
+            pre = temp; 
+            temp = temp->next; 
+        }
+        
+    }
+    if(!flag)
+        cout << "Element not present in the linked list\n";
+}
+
+void reverseSSLIterative(){
+    cout << "Original:"; 
+    Display();     
+
+    node* temp = NULL, *prev = NULL, *current = head;      
+    while(current){
+        temp = current->next; 
+        current->next = prev; 
+        prev = current; 
+        current = temp; 
+    }
+    head = prev;
+    cout << "Reversed: ";
+    Display();
+}
+node* temp = NULL; 
+void reverseSSLRecursive(struct node* prev,struct node *current){    
+    cout << "current is: " << current->data << "\n";
+    if(current != NULL && current->next != NULL){
+        //cout << "old current: " << current->next->data << "\n"; 
+        reverseSSLRecursive(current, current->next); 
+        current->next = prev;                   
+    }
+    else{
+        cout << "head is: " << head->data << "\n";
+        head = prev;         
+        //cout << "head is: " << head->data << "\n";
+    }    
+}
 int main(){     
     head = NULL;
     atEnd(1);    
@@ -69,8 +140,13 @@ int main(){
     atEnd(3);
     atEnd(4); 
     atFront(5);
-    atFront(6);         
-    
+    atFront(6);    
+    //DeleteFromFront();
+    //DeleteFromEnd();
+    //DeleteElement(2); 
+    cout << "Before SSL: ";
+    Display();     
+    reverseSSLRecursive(NULL, head); 
 }
 
 
