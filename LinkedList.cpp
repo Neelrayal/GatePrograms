@@ -62,10 +62,9 @@ void atFront(int data){
     Display();
 }
 
-int main(){    
+int main(){     
     head = NULL;
-    atEnd(1);
-    
+    atEnd(1);    
     atEnd(2);
     atEnd(3);
     atEnd(4); 
