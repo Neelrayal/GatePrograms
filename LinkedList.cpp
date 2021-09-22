@@ -119,8 +119,9 @@ void reverseSSLIterative(){
     cout << "Reversed: ";
     Display();
 }
-node* temp = NULL; 
+
 void reverseSSLRecursive(struct node* prev,struct node *current){    
+    // Now working properly
     cout << "current is: " << current->data << "\n";
     if(current != NULL && current->next != NULL){
         //cout << "old current: " << current->next->data << "\n"; 
@@ -133,6 +134,8 @@ void reverseSSLRecursive(struct node* prev,struct node *current){
         //cout << "head is: " << head->data << "\n";
     }    
 }
+
+
 int main(){     
     head = NULL;
     atEnd(1);    
@@ -146,7 +149,7 @@ int main(){
     //DeleteElement(2); 
     cout << "Before SSL: ";
     Display();     
-    reverseSSLRecursive(NULL, head); 
+    //reverseSSLRecursive(NULL, head); 
 }
 
 
