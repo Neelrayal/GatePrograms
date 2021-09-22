@@ -53,7 +53,7 @@ void atFront(int data){
     }
     else{
         node* temp = head; 
-        //cout <<"  NOT NULL";        
+        //cout <<"  NOT NULL;        
         newNode->next = head;
         //cout << "newNode next: " << newNode->next << "\n";
         head = newNode;  
@@ -72,3 +72,5 @@ int main(){
     atFront(6);         
     
 }
+
+
