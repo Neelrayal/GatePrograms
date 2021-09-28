@@ -37,7 +37,15 @@ void getHighestPriority(){
 
 void deleteHighestPriority(){
     node* temp = head; 
-    
+    int prio = INT_MAX, value; 
+    // Will think later. 
+    while(temp->next){
+        if( temp->next->priority < prio){
+            prio = temp->next->priority;
+            value = temp->next->data; 
+        }
+        temp = temp->next->next; 
+    }
 }
 
 void Display(){
