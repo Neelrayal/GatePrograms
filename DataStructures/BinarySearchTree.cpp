@@ -91,6 +91,7 @@ void postorder(node* t){
     cout << t->data << " ";
 }
 
+/* This is not working correctly */ 
 void search(node* root, int key){
     if( root == NULL ){
         cout << "key not found\n";
